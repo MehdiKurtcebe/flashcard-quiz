@@ -23,6 +23,9 @@
       "react-app/jest"
     ]
   },
+  "prettier": {
+    "tabWidth": 4
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -34,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "prettier": "^2.5.1"
   }
 }
