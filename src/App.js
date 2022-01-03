@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {decode} from "he";
+import { decode } from "he";
 import "./app.css";
 import FlashCardList from "./FlashCardList";
 
@@ -12,7 +12,10 @@ function App() {
       setFlashCards(
         res.data.results.map((item, index) => {
           const answer = decode(item.correct_answer);
-          const options = [...item.incorrect_answers.map(a => decode(a)), answer];
+          const options = [
+            ...item.incorrect_answers.map((a) => decode(a)),
+            answer,
+          ];
           return {
             id: `${index}-${Date.now()}`,
             question: decode(item.question),
@@ -24,7 +27,11 @@ function App() {
     });
   }, []);
 
-  return <FlashCardList flashCards={flashCards} />;
+  return (
+    <div className="container">
+      <FlashCardList flashCards={flashCards} />
+    </div>
+  );
 }
 
 const STUB_FLASHCARDS = [
