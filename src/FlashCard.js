@@ -12,8 +12,8 @@ function FlashCard({ flashCard }) {
         <div className="flashCard-front">
           {flashCard.question}
           <div className="flashCard-options">
-            {flashCard.options.map((option) => {
-              return <div className="flashCard-option">{option}</div>;
+            {flashCard.options.map((option, index) => {
+              return <div className="flashCard-option" key={index}>{option}</div>;
             })}
           </div>
         </div>
